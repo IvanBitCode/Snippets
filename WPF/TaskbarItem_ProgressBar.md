@@ -4,7 +4,7 @@
 ```xml
 <Window ...>
     <Window.TaskbarItemInfo>
-        <TaskbarItemInfo x:Name="taskbarInfo" Description="Master List"/>
+        <TaskbarItemInfo x:Name="taskbarInfo" Description="List"/>
     </Window.TaskbarItemInfo>
     ...
 </Window>
