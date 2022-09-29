@@ -17,9 +17,9 @@ Xaml
 
 The code
 
-```csharp
-ObservableCollection<Path3_Work> _Obs3WorkPaths = new ObservableCollection<Path3_Work>();
-DgPaths.ItemsSource = _Obs3WorkPaths;
+```cs
+ObservableCollection<Path3_Work> _ObsWorkPaths = new ObservableCollection<Path3_Work>();
+DgPaths.ItemsSource = _ObsWorkPaths;
 ```
 
 ## Detailed Example
@@ -39,7 +39,7 @@ DgPaths.ItemsSource = _Obs3WorkPaths;
 
 ### Filter rows in DataGrid
 
-```chsarp
+```cs
 ObservableCollection<EnvVar> obsEnvVars = new ObservableCollection<EnvVar>();
 private ICollectionView _itemList;
 
@@ -71,7 +71,7 @@ dgEnvVars.ItemsSource = _itemList;
 ### EnvVar Class for the ObservableCollection
 The class implements the INotifyPropertyChanged interface to check for changes in the items of the collection.
 
-```csharp
+```cs
 public class EnvVar : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
@@ -114,7 +114,7 @@ public class EnvVar : INotifyPropertyChanged
 
 ### Filter when text in TextBox changes
 
-```csharp
+```cs
 private void TxtFind_TextChanged(object sender, TextChangedEventArgs e)
 {
     _itemList.Filter = new Predicate<object>(item => ((EnvVar)item).Name.ToLower().Contains(txtFind.Text.ToLower()));
