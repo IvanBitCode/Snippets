@@ -1,4 +1,6 @@
-# Getting progress report
+# Task ProgressReport and Cancellations
+
+## Getting progress report
 
 Podemos crear una clase que se encargue de almacenar información del progreso:
 
@@ -43,7 +45,7 @@ class UiWin : Window {
 }
 ```
 
-# Cancelling a progress
+## Cancelling a progress
 
 Para cancelar un progreso, necesitamos un **CancellationToken**, del cual pasamos la propiedad **Token** al método **MethodAsync()**:
 

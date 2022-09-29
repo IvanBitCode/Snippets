@@ -1,4 +1,4 @@
-Open file with default application
+# Open File with Default Application
 
 ```cs
 FileInfo fi = new FileInfo(@"D:\Users\file.xlsx");

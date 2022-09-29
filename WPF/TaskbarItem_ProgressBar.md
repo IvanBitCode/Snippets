@@ -1,5 +1,6 @@
 # TaskbarItem Progressbar
-**Add the TaskbarItemInfo to XAML**
+
+## Add the TaskbarItemInfo to XAML
 
 ```xml
 <Window ...>
@@ -10,7 +11,7 @@
 </Window>
 ```
 
-**Set the state**
+## Set the state
 
 Set the state before start the background process:
 
@@ -26,7 +27,7 @@ When the background process ends:
 taskbarInfo.ProgressState = TaskbarItemProgressState.None;
 ```
 
-**Change the progress**
+## Change the progress
 
 It can be set to a double between 0 (0%) and 1 (100%):
 

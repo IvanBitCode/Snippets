@@ -1,4 +1,4 @@
-# DataGrid selected row background color
+# DataGrid Selected Row Background Color
 
 ```xml
 <DataGrid x:Name="DgPaths" ItemsSource="{Binding}" ...> 

@@ -1,3 +1,5 @@
+# Toast
+
 This class creates a toast notification (Android style)
 
 ```csharp

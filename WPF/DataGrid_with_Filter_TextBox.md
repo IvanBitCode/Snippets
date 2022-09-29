@@ -1,4 +1,4 @@
-# DataGrid with filter text box
+# DataGrid with Filter TextBox
 
 ## Quick Example
 

@@ -1,4 +1,4 @@
-# Read embbeded file
+# Read Embbeded File
 
 From Visual Studio, select desired file, go to its properties and change **Build Action** to **Embbeded Resource**. Then use this code:
 
