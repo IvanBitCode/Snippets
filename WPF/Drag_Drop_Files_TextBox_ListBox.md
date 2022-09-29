@@ -9,31 +9,31 @@ AllowDrop="True"
 An this event for both TextBox and ListBox:
 
 ```cs
-PreviewDragOver="Operators_PreviewDragOver"
+PreviewDragOver="Op_PreviewDragOver"
 ```
 
 For a TextBox, set this events:
 
 ```cs
-PreviewDrop="TxtSelectedOperators_PreviewDrop"
+PreviewDrop="TxtSelectedOp_PreviewDrop"
 ```
 
 For a ListBox set this events:
 
 ```cs
-Drop="LstOperators_Drop"
+Drop="LstOp_Drop"
 ```
 
 We need two event handlers. The code is compatible for both TextBox and ListBox. The second one will the Drop event in the ListBox:
 
 ```cs
-private void TxtSelectedOperators_PreviewDragOver(object sender, DragEventArgs e)
+private void TxtSelectedOp_PreviewDragOver(object sender, DragEventArgs e)
 {
     e.Effects = DragDropEffects.Copy;
     e.Handled = true;
 }
  
-private void TxtSelectedOperators_PreviewDrop(object sender, DragEventArgs e)
+private void TxtSelectedOp_PreviewDrop(object sender, DragEventArgs e)
 {
     if (e.Data.GetDataPresent(DataFormats.FileDrop))
     {
@@ -42,7 +42,7 @@ private void TxtSelectedOperators_PreviewDrop(object sender, DragEventArgs e)
         {
             foreach (var item in files)
             {
-                TxtSelectedOperators.AppendText(item + Strings.NL);
+                TxtSelectedOp.AppendText(item + Strings.NL);
             }
         }
         catch (Exception ex)
@@ -56,7 +56,7 @@ private void TxtSelectedOperators_PreviewDrop(object sender, DragEventArgs e)
 For a ListBox we need an ObservableCollection<T> which will be the ItemSoruce of the ListBox:
 
 ```cs
-LstOperators.ItemsSource = _OperatorsList;
+LstOp.ItemsSource = _OperatorsList;
 ```
 
 The elements of the list can be deleted when pressing the delete key:
@@ -64,13 +64,13 @@ The elements of the list can be deleted when pressing the delete key:
 ```cs
 private void ListBox_KeyUp(object sender, KeyEventArgs e)
 {
-    if (e.Key == Key.Delete && LstOperators.SelectedIndex != -1) {
-        int index = LstOperators.SelectedIndex;
-        _OperatorsList.RemoveAt(index);
-        if (index >= _OperatorsList.Count) {
-            index = _OperatorsList.Count - 1;
+    if (e.Key == Key.Delete && LstOp.SelectedIndex != -1) {
+        int index = LstOp.SelectedIndex;
+        _OpList.RemoveAt(index);
+        if (index >= _OpList.Count) {
+            index = _OpList.Count - 1;
         }
-        LstOperators.SelectedIndex = index;
+        LstOp.SelectedIndex = index;
     }
 }
 ```
