@@ -1,4 +1,4 @@
-# Drag and Drop files into TextBox and ListBox
+# Drag and Drop Files Into TextBox and ListBox
 
 Set this property for both TextBox and ListBox:
 
