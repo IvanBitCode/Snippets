@@ -1,4 +1,4 @@
-# Notification Icon (Android Style)
+# Notification Icon
 Agregar las referencias `System.Windows.Forms` y `System.Drawing`.
 
 Declarar el campo:
@@ -13,8 +13,8 @@ Definir el campo en el constructor de la clase:
 _notifyIcon = new System.Windows.Forms.NotifyIcon()
 {
 	BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info,
-	BalloonTipTitle = "DOORS monitor",
-	Text = "DOORS Monitor",
+	BalloonTipTitle = "App monitor",
+	Text = "App Monitor",
 	Visible = true
 };
 _notifyIcon.Click += _notifyIcon_Click;
@@ -25,7 +25,7 @@ Dentro del método Window_Loaded:
 ```csharp
 var assembly = Assembly.GetExecutingAssembly();
 // Note: doors32.ico was set as Embbeded Result in its properties.
-var resourceName = "NpiHcTools.Icons.doors32.ico";
+var resourceName = "ProjectName.Icons.icon32.ico";
 Stream iconStream = assembly.GetManifestResourceStream(resourceName);
 _notifyIcon.Icon = new System.Drawing.Icon(iconStream);
 ```
