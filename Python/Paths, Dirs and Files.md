@@ -105,13 +105,15 @@ path.write_text("content")
 # Writing a list to a file
 path.write_text("\n".join(python_list))
 
-# Copying and moving files and dirs
+# Copying, moving and renaming files
 import shutil
 
 source = Path("ecommers/file1.txt")
 target = Path("ecommers/prod/file1.txt")
 shutil.copy(source, target)
 # Note: If target file exist, it will be replaced.
+
+os.rename(source, dest)
 ```
 
 ## Copy files in parallel
@@ -125,5 +127,32 @@ The `concurrent.futures` module provides high-level interface for asyncronously 
 import concurrent.futures
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-    executor.submit(shutil.copy, source_file, target_file)
+    for file in files:
+        executor.submit(shutil.copy, file, target_file)
+```
+
+To avoid the for loop:
+
+```python
+with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+    executor.map(os.remove, files) # files is a list or iterable
+```
+
+## Getting file persmissions
+
+```python
+import os
+import stat
+
+mask = oct(os.stat(file).st_mode)[-3:]
+```
+
+`mask` will be:
+- 444: Users are only able to read the file. They cannot write ot it or execute it.
+- 666: Users can read and write but cannot execute the file.
+
+To change the file permissions:
+
+```python
+os.chmod(file, stat.S_IWRITE)
 ```
