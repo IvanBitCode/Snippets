@@ -56,7 +56,7 @@ private void TxtSelectedOp_PreviewDrop(object sender, DragEventArgs e)
 For a ListBox we need an ObservableCollection<T> which will be the ItemSoruce of the ListBox:
 
 ```cs
-LstOp.ItemsSource = _OperatorsList;
+LstOp.ItemsSource = _OpList;
 ```
 
 The elements of the list can be deleted when pressing the delete key:
